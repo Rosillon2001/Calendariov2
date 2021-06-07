@@ -1,3 +1,4 @@
+
 package propertiesReader;
 
 import java.io.FileInputStream;
@@ -49,3 +50,4 @@ public class PropertiesReader {
 		
 	}
 }
+

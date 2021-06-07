@@ -1,3 +1,4 @@
+
 package src;
 
 import java.util.Properties;
@@ -22,3 +23,4 @@ public class RegisterController {
 	}
 
 }
+
