@@ -23,58 +23,53 @@
     <build>
     <resources>
 			<resource>
-				<directory>src/main/java</directory>
+				<directory>src</directory>
 				<excludes>
 					<exclude>**/*.java</exclude>
 				</excludes>
 			</resource>
 		</resources>
-        <plugins>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-
-			<artifactId>maven-dependency-plugin</artifactId>
-			
-			<version>2.3</version>
-			
-			
-			<executions>
-			<execution>
-			<phase>package</phase>
-			
-			<goals>
-			
-			<goal>copy</goal>
-			
-			</goals>
-			
-			<configuration>
-						
-			<artifactItems>
-				
-				<artifactItem>
-				
-				<groupId>com.heroku</groupId>
-				
-				<artifactId>webapp-runner</artifactId>
-				
-				<version>9.0.41.0</version>
-				
-				<destFileName>webapp-runner.jar</destFileName>
-				
-				</artifactItem>
-			
-			</artifactItems>
-			
-			</configuration>
-			
-			</execution>
-			
-			</executions>
-			
-			</plugin>
-            
 		
+        <plugins>
+        
+	        <plugin>
+	        	<artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+        </configuration>
+	        </plugin>
+	        
+	        <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version><!--$NO-MVN-MAN-VER$-->
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>8.0.30.2</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+	   </plugin>
 		</plugins>
     </build>
 </project>
